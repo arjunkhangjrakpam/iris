@@ -1,0 +1,86 @@
+<!-- This is GUI for Breast Cancer Detection Application Using Machine Learning Classifer -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>IRIS CLASSIFY API</title>
+
+  <style>
+    /* CSS code for button */
+    body {
+      background-image: url('static/images/lilac.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+    
+    img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Show Indian AI Hospital banner-->
+  <div>
+    <img src="static/images/iris-machinelearning.png" class="w3-border w3-padding" alt="AI flower classifier" style="width:60%">
+  </div>
+ 
+ 
+ <div class="login">
+	
+    <!-- Get input for predict the cancer -->
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter the value of plant features :</h1>
+        
+    	<input type="text" name="sepal length (cm)" placeholder="sepal length (cm)" required="required" />
+    	<input type="text" name="sepal width (cm)" placeholder="sepal width (cm)" required="required" />
+    	<input type="text" name="petal length (cm)" placeholder="petal length (cm)" required="required" />
+    	<input type="text" name="petal width (cm)" placeholder="petal width (cm)" required="required" />
+        <br>
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_cont" align="center">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict plant label</strong></button></a>
+        </div>
+        
+    </form>
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h1>{{ prediction_text }}</h1>
+       </center>
+   </div>
+
+ </div>
+
+</body>
+</html>
